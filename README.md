@@ -1,5 +1,11 @@
 # Heroku OAuth2 Provider for Laravel Socialite
 
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/SocialiteProviders/Heroku.svg?style=flat-square)](https://scrutinizer-ci.com/g/SocialiteProviders/Heroku/?branch=master)
+[![Latest Stable Version](https://img.shields.io/packagist/v/socialiteproviders/heroku.svg?style=flat-square)](https://packagist.org/packages/socialiteproviders/heroku)
+[![Total Downloads](https://img.shields.io/packagist/dt/socialiteproviders/heroku.svg?style=flat-square)](https://packagist.org/packages/socialiteproviders/heroku)
+[![Latest Unstable Version](https://img.shields.io/packagist/vpre/socialiteproviders/heroku.svg?style=flat-square)](https://packagist.org/packages/socialiteproviders/heroku)
+[![License](https://img.shields.io/packagist/l/socialiteproviders/heroku.svg?style=flat-square)](https://packagist.org/packages/socialiteproviders/heroku)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
