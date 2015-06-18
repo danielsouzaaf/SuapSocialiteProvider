@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Heroku;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;
