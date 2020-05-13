@@ -31,6 +31,29 @@ class Provider extends AbstractProvider
     }
 
     /**
+     * Get the GET parameters for the code request.
+     *
+     * @param  string|null  $state
+     * @return array
+     */
+    protected function getCodeFields($state = null)
+    {
+        $fields = [
+            'client_id' => $this->clientId,
+            'redirect_uri' => $this->redirectUrl,
+            //O Suap não trabalha bem caso o scope seja informado mas esteja vazio.
+//            'scope' => $this->formatScopes($this->getScopes(), $this->scopeSeparator),
+            'response_type' => 'code',
+        ];
+
+        if ($this->usesState()) {
+            $fields['state'] = $state;
+        }
+
+        return array_merge($fields, $this->parameters);
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function getTokenUrl()
