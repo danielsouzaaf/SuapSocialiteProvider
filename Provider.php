@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialiteProviders\Heroku;
+namespace SocialiteProviders\Suap;
 
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
@@ -10,17 +10,24 @@ class Provider extends AbstractProvider
     /**
      * Unique Provider Identifier.
      */
-    const IDENTIFIER = 'HEROKU';
+    const IDENTIFIER = 'SUAP';
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $scopes = [];
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $scopeSeparator = ' ';
 
     /**
      * {@inheritdoc}
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase(
-            'https://id.heroku.com/oauth/authorize',
-            $state
-        );
+        return $this->buildAuthUrlFromBase('https://suap.ifrn.edu.br/o/authorize/', $state);
     }
 
     /**
@@ -28,7 +35,7 @@ class Provider extends AbstractProvider
      */
     protected function getTokenUrl()
     {
-        return 'https://id.heroku.com/oauth/token';
+        return 'https://suap.ifrn.edu.br/o/token/';
     }
 
     /**
@@ -36,16 +43,13 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get(
-            'https://api.heroku.com/account',
-            [
-                'headers' => [
-                    'Authorization' => 'Bearer '.$token,
-                ],
-            ]
-        );
+        $response = $this->getHttpClient()->get('https://suap.ifrn.edu.br/api/eu/', [
+            'headers' => [
+                'Authorization' => 'Bearer '.$token,
+            ],
+        ]);
 
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody(), true);
     }
 
     /**
@@ -54,8 +58,9 @@ class Provider extends AbstractProvider
     protected function mapUserToObject(array $user)
     {
         return (new User())->setRaw($user)->map([
-            'id'    => $user['id'], 'nickname' => null, 'name' => $user['name'],
-            'email' => $user['email'], 'avatar' => null,
+            'id'       => $user['identificacao'],
+            'name'     => $user['nome'],
+            'email'    => $user['email'],
         ]);
     }
 

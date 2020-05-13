@@ -1,10 +1,10 @@
 {
-    "name": "socialiteproviders/heroku",
-    "description": "Heroku OAuth2 Provider for Laravel Socialite",
+    "name": "socialiteproviders/suap",
+    "description": "SUAP OAuth2 Provider for Laravel Socialite",
     "license": "MIT",
     "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@brianfaust.de"
+        "name": "Daniel Souza",
+        "email": "danielsouzaaf@gmail.com"
     }],
     "require": {
         "php": "^5.6 || ^7.0",
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SocialiteProviders\\Heroku\\": ""
+            "SocialiteProviders\\Suap\\": ""
         }
     }
 }

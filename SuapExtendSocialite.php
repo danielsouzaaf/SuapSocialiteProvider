@@ -1,20 +1,20 @@
 <?php
 
-namespace SocialiteProviders\Heroku;
+namespace SocialiteProviders\Suap;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;
 
-class HerokuExtendSocialite
+class SuapExtendSocialite
 {
     /**
      * Register the provider.
      *
-     * @param \SocialiteProviders\Manager\SocialiteWasCalled $socialiteWasCalled
+     * @param SocialiteWasCalled $socialiteWasCalled
      */
     public function handle(SocialiteWasCalled $socialiteWasCalled)
     {
         $socialiteWasCalled->extendSocialite(
-            'heroku',
+            'suap',
             __NAMESPACE__.'\Provider'
         );
     }
