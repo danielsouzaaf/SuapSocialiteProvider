@@ -41,10 +41,13 @@ class Provider extends AbstractProvider
         $fields = [
             'client_id' => $this->clientId,
             'redirect_uri' => $this->redirectUrl,
-            //O Suap não trabalha bem caso o scope seja informado mas esteja vazio.
-//            'scope' => $this->formatScopes($this->getScopes(), $this->scopeSeparator),
             'response_type' => 'code',
         ];
+
+
+        if (count($this->getScopes())) {
+            $fields['scope'] = $this->formatScopes($this->getScopes(), $this->scopeSeparator);
+        }
 
         if ($this->usesState()) {
             $fields['state'] = $state;
